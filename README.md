@@ -1,6 +1,6 @@
 # Suriya Haidari — Full-Stack Developer Portfolio
 
-A modular, responsive portfolio built with React, TypeScript, Next.js-compatible APIs and Vinext. The experience includes reusable project cards, data-driven content, light and dark themes, accessible navigation, reduced-motion support and production-ready SEO.
+A modular, responsive portfolio built with React, TypeScript and Next.js. The experience includes reusable project cards, data-driven content, light and dark themes, accessible navigation, reduced-motion support and production-ready SEO.
 
 ## Run locally
 
@@ -11,9 +11,7 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed in the terminal.
-
-The local Cloudflare runtime uses built-in placeholder request metadata, so development does not depend on Cloudflare&apos;s metadata endpoint or an external network request.
+Open `http://localhost:3000`.
 
 ## Production checks
 
@@ -57,7 +55,7 @@ Each project supports:
 
 SEO is configured in `app/layout.tsx`, `app/robots.ts`, `app/sitemap.ts`, `app/manifest.ts` and the structured data in `app/page.tsx`.
 
-Set `NEXT_PUBLIC_SITE_URL` to the final production origin when deploying on another domain. If it is not set, the current portfolio URL in `lib/site.ts` is used.
+On Vercel, the canonical URL is generated from `VERCEL_PROJECT_PRODUCTION_URL`. Set `NEXT_PUBLIC_SITE_URL` only when using a custom domain or when you want to override that value.
 
 The existing `public/og.png` is used for Open Graph and X/Twitter previews.
 
@@ -67,3 +65,13 @@ The existing `public/og.png` is used for Open Graph and X/Twitter previews.
 2. Edit projects and capabilities in `data/portfolio.ts`.
 3. Replace `public/og.png` if the portfolio branding changes.
 4. Add a verified email or LinkedIn link to the contact section when available.
+
+## Deploy on Vercel
+
+1. Push this folder to a GitHub repository.
+2. In Vercel, choose **Add New → Project** and import that repository.
+3. Keep **Framework Preset** set to **Next.js**.
+4. Keep **Root Directory** as `./`, **Build Command** as `next build`, and leave **Output Directory** empty.
+5. Select **Deploy**.
+
+Vercel will build the portfolio with the native Next.js runtime. Every later push to the connected repository creates a new deployment.
