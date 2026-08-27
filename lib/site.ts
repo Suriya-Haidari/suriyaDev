@@ -20,7 +20,7 @@ export const siteConfig = {
     "Full-stack web developer building clear interfaces, reliable services and practical product systems.",
   url: normalizeSiteUrl(deploymentUrl),
   github: "https://github.com/Suriya-Haidari",
-  location: "Germany",
+  location: "Afghanistan",
   availability: "Available for full-stack opportunities",
   lastUpdated: "2026-08-26",
 } as const;
