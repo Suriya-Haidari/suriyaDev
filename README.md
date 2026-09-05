@@ -1,8 +1,6 @@
 # Suriya Haidari — Full-Stack Developer Portfolio
 
-A recruiter-focused, responsive portfolio built with React, TypeScript and Next.js. It keeps content easy to scan, puts direct contact actions in the first viewport and separates professional case studies from practice projects.
-
-The codebase uses feature folders, data-driven project cards, light and dark themes, accessible navigation, reduced-motion support and production-ready SEO without splitting simple UI into unnecessary abstractions.
+A modular, responsive portfolio built with React, TypeScript and Next.js. The experience includes reusable project cards, data-driven content, light and dark themes, accessible navigation, reduced-motion support and production-ready SEO.
 
 ## Run locally
 
@@ -65,7 +63,7 @@ Add smaller independent or learning projects to `practiceProjects`. These use a 
 
 SEO is configured in `app/layout.tsx`, `app/robots.ts`, `app/sitemap.ts`, `app/manifest.ts` and the structured data in `app/page.tsx`.
 
-The production portfolio URL is the safe fallback. On Vercel, the canonical URL is generated from `VERCEL_PROJECT_PRODUCTION_URL`. Set `NEXT_PUBLIC_SITE_URL` only when using a custom domain or when you want to override that value; see `.env.example`.
+On Vercel, the canonical URL is generated from `VERCEL_PROJECT_PRODUCTION_URL`. Set `NEXT_PUBLIC_SITE_URL` only when using a custom domain or when you want to override that value.
 
 The existing `public/og.png` is used for Open Graph and X/Twitter previews.
 
@@ -74,7 +72,7 @@ The existing `public/og.png` is used for Open Graph and X/Twitter previews.
 1. Update identity, contact details, location and availability in `lib/site.ts`.
 2. Edit projects and capabilities in `data/portfolio.ts`.
 3. Replace `public/og.png` if the portfolio branding changes.
-4. Update the profile links in `lib/site.ts` if the public accounts change.
+4. Add a verified email or LinkedIn link to the contact section when available.
 
 ## Deploy on Vercel
 

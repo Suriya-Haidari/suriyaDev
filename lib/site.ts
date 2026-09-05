@@ -1,7 +1,5 @@
-const canonicalFallback = "https://suriya-dev.vercel.app";
-
 function normalizeSiteUrl(value: string | undefined): string {
-  if (!value) return canonicalFallback;
+  if (!value) return "http://localhost:3000";
 
   const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
   return withProtocol.replace(/\/$/, "");
@@ -22,14 +20,9 @@ export const siteConfig = {
     "Full-stack web developer building clear interfaces, reliable services and practical product systems.",
   url: normalizeSiteUrl(deploymentUrl),
   github: "https://github.com/Suriya-Haidari",
-  linkedin: "https://linkedin.com/in/suriya-haidari",
-  email: "soriahaidary17@gmail.com",
-  emailHref: "mailto:soriahaidary17@gmail.com?subject=Full-stack%20opportunity",
   location: "Afghanistan",
-  experience: "Nearly 2 years",
-  workStyle: "Remote collaboration",
-  availability: "Open to remote full-stack roles",
-  lastUpdated: "2026-09-05",
+  availability: "Available for full-stack opportunities",
+  lastUpdated: "2026-08-26",
 } as const;
 
 export const absoluteUrl = (path = "/") => new URL(path, siteConfig.url).toString();
