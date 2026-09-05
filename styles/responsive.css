@@ -12,8 +12,13 @@
   }
 
   .hero-actions,
-  .hero-meta {
+  .hero-profile-links {
     justify-content: center;
+  }
+
+  .hero-snapshot {
+    margin-inline: auto;
+    text-align: left;
   }
 
   .hero-visual {
@@ -37,6 +42,10 @@
     min-height: 500px;
     border-top: 1px solid var(--line);
     border-left: 0;
+  }
+
+  .practice-projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-grid {
@@ -97,7 +106,19 @@
 
   .primary-nav a {
     padding: 8px 10px;
-    font-size: 9px;
+    font-size: 12px;
+  }
+
+  .header-contact {
+    width: 40px;
+    min-height: 40px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 12px;
+  }
+
+  .header-contact span {
+    display: none;
   }
 
   .theme-toggle {
@@ -115,7 +136,7 @@
 
   .eyebrow {
     justify-content: center;
-    font-size: 8px;
+    font-size: 12px;
   }
 
   .hero h1 {
@@ -123,12 +144,11 @@
   }
 
   .hero-lede {
-    font-size: 15px;
+    font-size: 16px;
   }
 
-  .hero-meta {
-    justify-content: space-between;
-    gap: 24px;
+  .hero-snapshot {
+    gap: 9px;
     text-align: left;
   }
 
@@ -157,7 +177,7 @@
 
   .architecture-node {
     grid-template-columns: 28px auto;
-    min-width: 112px;
+    min-width: 116px;
     padding: 8px;
   }
 
@@ -166,8 +186,8 @@
     height: 28px;
   }
 
-  .architecture-node b { font-size: 8px; }
-  .architecture-node small { font-size: 6px; }
+  .architecture-node b { font-size: 12px; }
+  .architecture-node small { display: none; }
   .architecture-node--interface { top: 45px; left: 8px; }
   .architecture-node--services { top: 55px; right: 7px; }
   .architecture-node--data { right: 7px; bottom: 45px; }
@@ -224,6 +244,10 @@
     flex-direction: column;
   }
 
+  .project-links {
+    justify-content: flex-start;
+  }
+
   .project-card--featured .project-visual {
     min-height: 390px;
   }
@@ -252,21 +276,40 @@
   }
 
   .layers-visual,
-  .board-visual {
+  .portal-visual {
     width: calc(100% - 30px);
     padding: 17px;
   }
 
-  .board-visual {
+  .portal-visual {
     gap: 6px;
   }
 
-  .board-column {
+  .portal-column {
     padding: 10px 6px;
   }
 
-  .board-column i {
+  .portal-column i {
     height: 54px;
+  }
+
+  .practice-projects {
+    margin-top: 76px;
+    padding-top: 60px;
+  }
+
+  .practice-projects__heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .practice-projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-card {
+    min-height: 350px;
   }
 
   .about-intro {
@@ -319,30 +362,37 @@
   }
 
   .site-footer {
-    grid-template-columns: 1fr auto;
-  }
-
-  .site-footer p {
-    display: none;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+    text-align: center;
   }
 
   .site-footer .brand-copy {
     display: grid;
   }
+
+  .site-footer > span {
+    justify-self: center;
+  }
 }
 
 @media (max-width: 430px) {
   .primary-nav a {
-    padding-inline: 7px;
-    font-size: 8px;
+    padding-inline: 6px;
+    font-size: 12px;
   }
 
   .hero-actions .button {
     width: 100%;
   }
 
-  .hero-meta dd {
-    max-width: 150px;
+  .hero-snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-profile-links {
+    flex-wrap: wrap;
   }
 
   .project-facts {

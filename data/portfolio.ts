@@ -1,4 +1,9 @@
-export type ProjectVisual = "operations" | "layers" | "board";
+export type ProjectVisual = "operations" | "layers" | "portal";
+
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
 
 export type PortfolioProject = {
   slug: string;
@@ -13,14 +18,20 @@ export type PortfolioProject = {
   highlights: readonly string[];
   visual: ProjectVisual;
   featured?: boolean;
-  link?: {
-    label: string;
-    href: string;
-  };
+  links?: readonly ProjectLink[];
+};
+
+export type PracticeProject = {
+  slug: string;
+  title: string;
+  type: string;
+  summary: string;
+  stack: readonly string[];
+  links: readonly ProjectLink[];
 };
 
 export const navigation = [
-  { label: "Projects", href: "#projects" },
+  { label: "Work", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ] as const;
@@ -64,26 +75,81 @@ export const projects: readonly PortfolioProject[] = [
     visual: "layers",
   },
   {
-    slug: "devboard",
+    slug: "medical-platform",
     index: "03",
-    title: "DevBoard",
-    organization: "Open source",
-    category: "Developer productivity tool",
+    title: "Medical Platform",
+    organization: "Personal project",
+    category: "Healthcare web application",
     summary:
-      "A focused Kanban workspace with drag-and-drop tasks, GitHub issue sync, code snippets, a Pomodoro timer and secure authentication.",
-    role: "Product engineering",
-    scope: "Open-source application",
-    stack: ["React", "Express", "MongoDB", "JWT"],
+      "A full-stack healthcare portal with patient-facing services, secure accounts, notifications, department content and operational views for administrators.",
+    role: "Full-stack development",
+    scope: "Frontend and API integration",
+    stack: ["Next.js", "TypeScript", "Redux", "Express", "PostgreSQL"],
     highlights: [
-      "Task management and drag-and-drop interactions",
-      "GitHub issue synchronization",
-      "Authentication, snippets and focus tooling",
+      "Patient services, departments and responsive content flows",
+      "Authentication, profiles and administrator workflows",
+      "Notifications, charts and real-time integrations",
     ],
-    visual: "board",
-    link: {
-      label: "View on GitHub",
-      href: "https://github.com/Suriya-Haidari/DevBoard",
-    },
+    visual: "portal",
+    links: [
+      {
+        label: "Live project",
+        href: "https://medical-frontend-peach.vercel.app",
+      },
+      {
+        label: "Source code",
+        href: "https://github.com/Suriya-Haidari/medical-frontend",
+      },
+    ],
+  },
+] as const;
+
+export const practiceProjects: readonly PracticeProject[] = [
+  {
+    slug: "invoice-dashboard",
+    title: "Invoice Dashboard",
+    type: "UI engineering practice",
+    summary:
+      "A responsive analytics dashboard with invoice status cards, charts, pagination and reusable React interface components.",
+    stack: ["React", "Vite", "Tailwind CSS", "Recharts"],
+    links: [
+      {
+        label: "Live demo",
+        href: "https://dashboard-design-test.vercel.app",
+      },
+      {
+        label: "Source",
+        href: "https://github.com/Suriya-Haidari/DashboardDesignTest",
+      },
+    ],
+  },
+  {
+    slug: "blog-platform",
+    title: "Blog Platform",
+    type: "Backend practice project",
+    summary:
+      "A server-rendered publishing application with post creation, editing, search, saved items, uploads and scheduled tasks.",
+    stack: ["Node.js", "Express", "EJS", "Multer"],
+    links: [
+      {
+        label: "Source",
+        href: "https://github.com/Suriya-Haidari/Blog",
+      },
+    ],
+  },
+  {
+    slug: "expense-tracker",
+    title: "Expense Tracker",
+    type: "React fundamentals practice",
+    summary:
+      "A focused expense-entry application with reusable form, filter, list and chart components for exploring React composition.",
+    stack: ["React", "JavaScript", "CSS"],
+    links: [
+      {
+        label: "Source",
+        href: "https://github.com/Suriya-Haidari/expense-item",
+      },
+    ],
   },
 ] as const;
 

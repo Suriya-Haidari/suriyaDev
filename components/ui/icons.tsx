@@ -35,3 +35,21 @@ export function GitHub({ size = 18 }: IconProps) {
     </svg>
   );
 }
+
+export function Mail({ size = 18, className }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 6.5h16v11H4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <path d="m5 7.5 7 5.3 7-5.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function LinkedIn({ size = 18, className }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6.3 9.2v8.5M6.3 6.4v.1M10.2 17.7v-4.9c0-2.1 1.2-3.5 3.2-3.5 2.1 0 3.3 1.4 3.3 3.8v4.6M10.2 12.2c.7-1.9 3.2-3.6 5.5-2.3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  );
+}
