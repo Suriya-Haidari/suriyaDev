@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #f6f5fb;
+  --surface: rgba(255, 255, 255, 0.78);
+  --panel: #ffffff;
+  --soft: #efedf7;
+  --ink: #111118;
+  --muted: #676573;
+  --line: rgba(17, 17, 24, 0.11);
+  --brand: #6848f5;
+  --mint: #39d7a3;
+  --header: rgba(246, 245, 251, 0.78);
+}
+
+:root.dark {
+  --canvas: #0b0b10;
+  --surface: rgba(20, 20, 28, 0.82);
+  --panel: #13131b;
+  --soft: #181721;
+  --ink: #f6f5fb;
+  --muted: #a4a1af;
+  --line: rgba(255, 255, 255, 0.11);
+  --brand: #8b70ff;
+  --mint: #48e3b1;
+  --header: rgba(11, 11, 16, 0.76);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-soft: var(--soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-mint: var(--mint);
+  --color-header: var(--header);
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    background: var(--canvas);
+  }
+
+  body {
+    min-width: 20rem;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    transition: background 300ms ease, color 300ms ease;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--brand) 70%, white);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand) 35%, transparent);
+    color: var(--ink);
+  }
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes portfolio-float {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-0.75rem) rotateX(1deg); }
+}
+
+@keyframes node-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.4rem); }
+}
+
+@keyframes line-flow {
+  to { stroke-dashoffset: -52; }
+}
+
+@keyframes ticker-slide {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes chart-pulse {
+  from { transform: scaleY(0.82); opacity: 0.72; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes glow-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-3rem, 3rem, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
