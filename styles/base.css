@@ -103,7 +103,7 @@ button {
   background: linear-gradient(135deg, var(--violet), #9b85ff);
   color: white;
   box-shadow: 0 8px 24px color-mix(in srgb, var(--violet) 26%, transparent);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 850;
   letter-spacing: -0.02em;
 }
@@ -114,13 +114,13 @@ button {
 }
 
 .brand-copy strong {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: -0.02em;
 }
 
 .brand-copy small {
   color: var(--muted);
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -139,7 +139,7 @@ button {
   padding: 9px 14px;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 760;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
@@ -148,6 +148,33 @@ button {
   background: var(--surface-soft);
   color: var(--ink);
   transform: translateY(-1px);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 8px;
+}
+
+.header-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 15px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 800;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.header-contact:hover {
+  background: var(--violet);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .theme-toggle {
@@ -193,7 +220,7 @@ button {
   padding: 0 19px;
   border: 1px solid transparent;
   border-radius: 14px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 820;
   letter-spacing: -0.01em;
   transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, border-color 0.28s ease;
@@ -253,7 +280,7 @@ button {
 .kicker {
   margin: 0 0 20px;
   color: var(--violet);
-  font: 800 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  font: 800 12px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -278,7 +305,7 @@ button {
   max-width: 430px;
   margin: 0 0 4px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -302,10 +329,9 @@ button {
   padding-block: 28px 42px;
 }
 
-.site-footer p,
 .site-footer > span {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .site-footer > span {
@@ -316,7 +342,25 @@ button {
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  font-size: 9px;
+  font-size: 12px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer-links a {
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--violet);
 }
 
 @keyframes header-enter {

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Node.js developer",
     "TypeScript developer",
     "MongoDB developer",
-    "web developer Germany",
+    "web developer Afganistan",
     "software engineer portfolio",
   ],
   alternates: { canonical: "/" },

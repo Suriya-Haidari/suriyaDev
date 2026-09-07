@@ -1,13 +1,13 @@
-import { AboutSection } from "@/components/portfolio/about-section";
-import { CapabilitiesSection } from "@/components/portfolio/capabilities-section";
-import { ContactSection } from "@/components/portfolio/contact-section";
-import { HeroSection } from "@/components/portfolio/hero-section";
-import { ProcessSection } from "@/components/portfolio/process-section";
-import { ProjectsSection } from "@/components/portfolio/projects-section";
-import { RevealObserver } from "@/components/portfolio/reveal-observer";
-import { SiteFooter } from "@/components/portfolio/site-footer";
-import { SiteHeader } from "@/components/portfolio/site-header";
-import { projects } from "@/data/portfolio";
+import { practiceProjects, projects } from "@/data/portfolio";
+import { AboutSection } from "@/features/about/about-section";
+import { CapabilitiesSection } from "@/features/capabilities/capabilities-section";
+import { ContactSection } from "@/features/contact/contact-section";
+import { HeroSection } from "@/features/hero/hero-section";
+import { ProcessSection } from "@/features/process/process-section";
+import { ProjectsSection } from "@/features/projects/projects-section";
+import { RevealObserver } from "@/features/site-shell/reveal-observer";
+import { SiteFooter } from "@/features/site-shell/site-footer";
+import { SiteHeader } from "@/features/site-shell/site-header";
 import { siteConfig } from "@/lib/site";
 
 const structuredData = {
@@ -23,7 +23,12 @@ const structuredData = {
     name: siteConfig.name,
     jobTitle: siteConfig.role,
     url: siteConfig.url,
-    sameAs: [siteConfig.github],
+    email: siteConfig.email,
+    sameAs: [siteConfig.github, siteConfig.linkedin],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: siteConfig.location,
+    },
     knowsAbout: [
       "React",
       "Next.js",
@@ -35,19 +40,28 @@ const structuredData = {
       "Full-stack web development",
     ],
   },
-  hasPart: projects.map((project) => ({
-    "@type": "CreativeWork",
-    name: project.title,
-    description: project.summary,
-    keywords: project.stack.join(", "),
-    url: `${siteConfig.url}/#project-${project.slug}`,
-  })),
+  hasPart: [
+    ...projects.map((project) => ({
+      "@type": "CreativeWork",
+      name: project.title,
+      description: project.summary,
+      keywords: project.stack.join(", "),
+      url: `${siteConfig.url}/#project-${project.slug}`,
+    })),
+    ...practiceProjects.map((project) => ({
+      "@type": "CreativeWork",
+      name: project.title,
+      description: project.summary,
+      keywords: project.stack.join(", "),
+      url: `${siteConfig.url}/#practice-${project.slug}`,
+    })),
+  ],
 };
 
 export default function Home() {
   return (
     <>
-      <a className="skip-link" href="#projects">Skip to selected projects</a>
+      <a className="skip-link" href="#projects">Skip to selected work</a>
       <SiteHeader />
       <main>
         <HeroSection />
