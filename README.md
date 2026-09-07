@@ -1,8 +1,6 @@
 # Suriya Haidari — React Portfolio
 
-A recruiter-focused portfolio built with React, Vite, JavaScript JSX, React Router and Tailwind CSS.
-
-The project intentionally uses `.jsx` instead of TypeScript. Every portfolio section has its own feature folder, navigation and routing are separated, and styling lives in Tailwind utility classes rather than traditional section-specific CSS selectors.
+A modular, responsive portfolio built with React, TypeScript and Next.js. The experience includes reusable project cards, data-driven content, light and dark themes, accessible navigation, reduced-motion support and production-ready SEO.
 
 ## Run locally
 
@@ -68,10 +66,18 @@ Components use Tailwind utility classes directly in JSX. `src/index.css` contain
 
 SEO metadata and structured data are in `index.html`. Crawl files and the web manifest are in `public/`. If the domain changes, update the production URLs in:
 
-- `index.html`
-- `public/robots.txt`
-- `public/sitemap.xml`
-- `src/config/site.js`
+SEO is configured in `app/layout.tsx`, `app/robots.ts`, `app/sitemap.ts`, `app/manifest.ts` and the structured data in `app/page.tsx`.
+
+On Vercel, the canonical URL is generated from `VERCEL_PROJECT_PRODUCTION_URL`. Set `NEXT_PUBLIC_SITE_URL` only when using a custom domain or when you want to override that value.
+
+The existing `public/og.png` is used for Open Graph and X/Twitter previews.
+
+## Personalize before launch
+
+1. Update identity, contact details, location and availability in `lib/site.ts`.
+2. Edit projects and capabilities in `data/portfolio.ts`.
+3. Replace `public/og.png` if the portfolio branding changes.
+4. Add a verified email or LinkedIn link to the contact section when available.
 
 ## Deploy on Vercel
 
