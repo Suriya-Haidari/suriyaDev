@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0b10" media="(prefers-color-scheme: dark)" />
+
+    <title>Suriya Haidari — Full-Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Suriya Haidari, a full-stack web developer building clear, reliable products with React, Node.js, JavaScript and MongoDB."
+    />
+    <meta
+      name="keywords"
+      content="Suriya Haidari, full-stack web developer, React developer, Node.js developer, JavaScript developer, remote developer, Afghanistan"
+    />
+    <meta name="author" content="Suriya Haidari" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://suriya-dev.vercel.app/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Suriya Haidari — Full-Stack Web Developer" />
+    <meta
+      property="og:description"
+      content="Full-stack web developer building clear interfaces, reliable services and practical product systems."
+    />
+    <meta property="og:url" content="https://suriya-dev.vercel.app/" />
+    <meta property="og:image" content="https://suriya-dev.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Suriya Haidari — Full-Stack Web Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Suriya Haidari — Full-Stack Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack web developer building clear interfaces, reliable services and practical product systems."
+    />
+    <meta name="twitter:image" content="https://suriya-dev.vercel.app/og.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Suriya Haidari — Full-Stack Web Developer",
+        "url": "https://suriya-dev.vercel.app/",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Suriya Haidari",
+          "jobTitle": "Full-Stack Web Developer",
+          "email": "soriahaidary17@gmail.com",
+          "sameAs": [
+            "https://github.com/Suriya-Haidari",
+            "https://linkedin.com/in/suriya-haidari"
+          ],
+          "knowsAbout": ["React", "JavaScript", "Node.js", "Express", "MongoDB", "PostgreSQL"]
+        }
+      }
+    </script>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

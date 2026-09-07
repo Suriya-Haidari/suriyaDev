@@ -1,65 +1,70 @@
-# Suriya Haidari — Full-Stack Developer Portfolio
+# Suriya Haidari — React Portfolio
 
 A modular, responsive portfolio built with React, TypeScript and Next.js. The experience includes reusable project cards, data-driven content, light and dark themes, accessible navigation, reduced-motion support and production-ready SEO.
 
 ## Run locally
 
-Requirements: Node.js 22.13 or newer. The npm commands are compatible with Windows PowerShell, macOS and Linux.
+Requirements: Node.js 22.13 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open `http://localhost:5173`.
 
 ## Production checks
 
 ```bash
-npm run lint
-npm run test
-```
-
-To run the built application:
-
-```bash
 npm run build
-npm run start
+npm test
 ```
 
-## Project structure
+## Folder structure
 
 ```text
-app/                  Route, metadata, sitemap, robots and manifest
-components/ui/        Small components shared across features
-features/about/       About section
-features/capabilities/ Skills and capability cards
-features/contact/     Recruiter call to action
-features/hero/        First-view summary and architecture visual
-features/process/     Engineering process
-features/projects/    Case studies and practice-project cards
-features/site-shell/  Header, footer, theme and reveal behavior
-data/portfolio.ts     Portfolio content and project data
-lib/site.ts           Identity, contact details and canonical URL
-styles/               Design tokens, shared, section and responsive CSS
+root/
+├── public/                       Static SEO and brand assets
+├── src/
+│   ├── components/ui/            Shared buttons, icons and headings
+│   ├── config/                   Portfolio identity and contact links
+│   ├── data/                     Project and capability content
+│   ├── features/
+│   │   ├── about/                About section
+│   │   ├── capabilities/         Skills section
+│   │   ├── contact/              Contact call to action
+│   │   ├── hero/                 Hero and architecture visual
+│   │   ├── process/              Engineering process
+│   │   └── projects/             Selected and practice projects
+│   ├── layout/
+│   │   ├── Footer/               Site footer
+│   │   ├── Navbar/               Navbar, links and theme toggle
+│   │   └── RevealObserver.jsx    Shared reveal behavior
+│   ├── pages/                    Routed page components
+│   ├── routes/                   React Router configuration and paths
+│   ├── App.jsx                   Application root
+│   ├── index.css                 Tailwind import, theme tokens and keyframes
+│   └── main.jsx                  React entry point
+├── index.html                    SEO metadata and Vite entry document
+├── package.json
+└── vite.config.js
 ```
 
-## Add or edit a project
+## Edit portfolio content
 
-Update the `projects` array in `data/portfolio.ts`. Every entry is rendered through the reusable `ProjectCard` component, so the section stays consistent without duplicated markup.
+- Update contact information in `src/config/site.js`.
+- Update projects, skills and process content in `src/data/portfolio.js`.
+- Add a new section inside `src/features/<section-name>/` and render it from `src/pages/Home/HomePage.jsx`.
+- Update navbar links in `src/layout/Navbar/navigation.js`.
+- Add page routes in `src/routes/AppRoutes.jsx` and route constants in `src/routes/paths.js`.
 
-Each selected project supports:
+## Styling
 
-- title, organization and category;
-- role and project scope;
-- summary and technical highlights;
-- technology tags;
-- optional live and source-code links;
-- a reusable visual treatment.
+Components use Tailwind utility classes directly in JSX. `src/index.css` contains only the Tailwind import, shared light/dark design tokens, base browser behavior and animation keyframes.
 
-Add smaller independent or learning projects to `practiceProjects`. These use a compact card so professional case studies remain the main focus.
+## SEO
 
-## SEO setup
+SEO metadata and structured data are in `index.html`. Crawl files and the web manifest are in `public/`. If the domain changes, update the production URLs in:
 
 SEO is configured in `app/layout.tsx`, `app/robots.ts`, `app/sitemap.ts`, `app/manifest.ts` and the structured data in `app/page.tsx`.
 
@@ -76,10 +81,10 @@ The existing `public/og.png` is used for Open Graph and X/Twitter previews.
 
 ## Deploy on Vercel
 
-1. Push this folder to a GitHub repository.
-2. In Vercel, choose **Add New → Project** and import that repository.
-3. Keep **Framework Preset** set to **Next.js**.
-4. Keep **Root Directory** as `./`, **Build Command** as `next build`, and leave **Output Directory** empty.
-5. Select **Deploy**.
+Import the repository into Vercel and use these settings:
 
-Vercel will build the portfolio with the native Next.js runtime. Every later push to the connected repository creates a new deployment.
+- Framework preset: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+
+The included `vercel.json` keeps React Router URLs working after page refreshes.
