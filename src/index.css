@@ -78,40 +78,79 @@
 }
 
 @keyframes hero-in {
-  from { opacity: 0; transform: translateY(1.5rem); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes portfolio-float {
-  0%, 100% { transform: translateY(0) rotateX(0deg); }
-  50% { transform: translateY(-0.75rem) rotateX(1deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.75rem) rotateX(1deg);
+  }
 }
 
 @keyframes node-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-0.4rem); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.4rem);
+  }
 }
 
 @keyframes line-flow {
-  to { stroke-dashoffset: -52; }
+  to {
+    stroke-dashoffset: -52;
+  }
 }
 
 @keyframes ticker-slide {
-  to { transform: translateX(-50%); }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes chart-pulse {
-  from { transform: scaleY(0.82); opacity: 0.72; }
-  to { transform: scaleY(1); opacity: 1; }
+  from {
+    transform: scaleY(0.82);
+    opacity: 0.72;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 @keyframes glow-drift {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-3rem, 3rem, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-3rem, 3rem, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 
   *,
   *::before,
@@ -119,5 +158,79 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+@keyframes hero-float-left {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate3d(0, -0.55rem, 0) rotate(1deg);
+  }
+}
+
+@keyframes hero-float-right {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(1deg);
+  }
+
+  50% {
+    transform: translate3d(0, 0.55rem, 0) rotate(-1deg);
+  }
+}
+
+@keyframes hero-float-dot {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -0.35rem, 0) scale(1.05);
+  }
+}
+
+
+@keyframes hero-float-left {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate3d(0, -0.55rem, 0) rotate(1deg);
+  }
+}
+
+@keyframes hero-float-right {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(1deg);
+  }
+
+  50% {
+    transform: translate3d(0, 0.55rem, 0) rotate(-1deg);
+  }
+}
+
+@keyframes hero-float-dot {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -0.35rem, 0) scale(1.05);
   }
 }

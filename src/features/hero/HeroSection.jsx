@@ -1,83 +1,106 @@
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import { ArrowUpRight, GitHub, LinkedIn, Mail } from "@/components/ui/Icons";
+import { ArrowUpRight, Mail } from "@/components/ui/Icons";
 import { containerClass } from "@/components/ui/layout";
 import { siteConfig } from "@/config/site";
-import { ArchitectureMap } from "@/features/hero/ArchitectureMap";
 
-const strengths = ["Product thinking", "React", "Node.js", "REST APIs", "MongoDB", "JavaScript", "System design"];
+function HeroProfileVisual() {
+  return (
+    <div className="relative mx-auto min-h-[23rem] w-full max-w-[33rem] sm:min-h-[28rem]">
+      <svg
+        className="absolute left-1/2 top-1/2 h-[20rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 sm:h-[25rem] sm:w-[27rem]"
+        viewBox="0 0 440 400"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M38 238C18 154 86 92 181 73C274 54 383 73 405 151C428 233 351 282 245 278C153 275 71 310 38 238Z"
+          fill="#f4b000"
+        />
+      </svg>
+
+      <div
+        className="absolute left-1/2 top-1/2 h-[19rem] w-[16rem] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[48%] border-4 border-white shadow-[0_22px_45px_rgba(65,52,18,0.18)] motion-safe:animate-[hero-in_0.7s_0.2s_ease-out_both] sm:h-[24rem] sm:w-[19rem]"
+        aria-label="Portrait of Suriya Haidari"
+      >
+        <img
+          src="/profile.jpg"
+          alt="Suriya Haidari"
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+
+      <span className="absolute left-0 top-[24%] rounded-full bg-[#173b2a] px-4 py-2.5 text-xs font-bold text-white shadow-[0_10px_20px_rgba(23,59,42,0.18)] motion-safe:animate-[hero-float-left_6s_ease-in-out_infinite] sm:left-2">
+        Full-Stack Developer
+      </span>
+
+      <span className="absolute right-0 top-[16%] rounded-full bg-white px-4 py-2.5 text-xs font-bold text-[#173b2a] shadow-[0_10px_20px_rgba(65,52,18,0.13)] motion-safe:animate-[hero-float-right_6.8s_ease-in-out_infinite] sm:right-2">
+        React · Node.js
+      </span>
+
+      <span className="absolute bottom-[13%] right-[2%] rounded-full border border-[#173b2a]/15 bg-[#fffdf8] px-4 py-2.5 text-xs font-bold text-[#173b2a] shadow-[0_10px_20px_rgba(65,52,18,0.1)] motion-safe:animate-[hero-float-left_7.2s_ease-in-out_infinite] sm:right-[7%]">
+        Product-minded
+      </span>
+
+      <span
+        className="absolute bottom-[12%] left-[13%] grid size-9 place-items-center rounded-full border-4 border-white bg-[#e97a45] shadow-[0_8px_15px_rgba(65,52,18,0.12)] motion-safe:animate-[hero-float-dot_5.5s_ease-in-out_infinite]"
+        aria-hidden="true"
+      >
+        <i className="size-2 rounded-full bg-[#173b2a]" />
+      </span>
+    </div>
+  );
+}
 
 export function HeroSection() {
-  const quickFacts = [
-    { label: "Experience", value: siteConfig.experience },
-    { label: "Work style", value: siteConfig.workStyle },
-    { label: "Core stack", value: "React · Node.js" },
-    { label: "Based in", value: siteConfig.location }
-  ];
-
   return (
-    <>
-      <section
-        className={`${containerClass} relative grid min-h-[53rem] items-center gap-14 pb-20 pt-32 text-center lg:grid-cols-[minmax(0,1fr)_minmax(26.875rem,0.9fr)] lg:gap-16 lg:text-left`}
-        id="top"
-        aria-labelledby="hero-title"
+    <section
+      id="top"
+      aria-labelledby="hero-title"
+      className="overflow-hidden bg-[#fffdf8] pb-16 pt-28 sm:pb-24 sm:pt-36"
+    >
+      <div
+        className={`${containerClass} grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16`}
       >
-        <div className="pointer-events-none absolute -left-48 top-24 z-0 size-[26rem] rounded-full bg-brand/15 blur-[120px]" />
-        <div className="pointer-events-none absolute -right-48 bottom-12 z-0 size-[26rem] rounded-full bg-mint/10 blur-[120px]" />
-
-        <div className="relative z-10">
-          <p className="mb-6 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.11em] text-muted motion-safe:animate-[hero-in_0.8s_ease-out_both]">
-            <span className="size-2 rounded-full bg-mint shadow-[0_0_0_5px_rgba(57,215,163,0.12)] motion-safe:animate-pulse" />
-            {siteConfig.role} · {siteConfig.availability}
+        <div className="max-w-[34rem]">
+          <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.13em] text-[#617267] motion-safe:animate-[hero-in_0.5s_ease-out_both]">
+            Hello, I&apos;m Suriya
           </p>
-          <h1 id="hero-title" className="mx-auto max-w-[700px] text-[clamp(3.6rem,7.1vw,6.4rem)] font-black leading-[0.91] tracking-[-0.075em] motion-safe:animate-[hero-in_0.8s_0.1s_ease-out_both] lg:mx-0">
-            I build full-stack products that feel <span className="bg-gradient-to-r from-brand via-[#8b70ff] to-mint bg-clip-text text-transparent">effortless.</span>
+
+          <h1
+            id="hero-title"
+            className="mt-4 text-[clamp(2.45rem,4.5vw,4.55rem)] font-semibold leading-[1.05] tracking-[-0.065em] text-[#173b2a] motion-safe:animate-[hero-in_0.6s_0.08s_ease-out_both]"
+          >
+            Full-stack developer building{" "}
+            <span className="text-[#e6a400]">useful</span> web products.
           </h1>
-          <p className="mx-auto mt-7 max-w-[620px] text-base leading-8 text-muted motion-safe:animate-[hero-in_0.8s_0.2s_ease-out_both] lg:mx-0 lg:text-lg">
-            {siteConfig.experience} of professional experience turning complex workflows into clear, dependable React interfaces, Node.js services and scalable data systems.
+
+          <p className="mt-6 max-w-[30rem] text-[0.95rem] leading-7 text-[#626b64] motion-safe:animate-[hero-in_0.6s_0.16s_ease-out_both]">
+            I build clear React interfaces and dependable Node.js services for
+            products with real user journeys, workflows, and admin tools.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3 motion-safe:animate-[hero-in_0.8s_0.3s_ease-out_both] lg:justify-start">
-            <ButtonLink href="#projects">
-              View selected work <ArrowUpRight />
-            </ButtonLink>
-            <ButtonLink variant="secondary" href={siteConfig.emailHref}>
-              <Mail /> Discuss an opportunity
-            </ButtonLink>
-          </div>
-
-          <dl className="mx-auto mt-9 grid max-w-[620px] grid-cols-1 gap-2 text-left motion-safe:animate-[hero-in_0.8s_0.4s_ease-out_both] min-[430px]:grid-cols-2 lg:mx-0" aria-label="Recruiter quick facts">
-            {quickFacts.map((fact) => (
-              <div className="grid gap-2 rounded-[0.875rem] border border-line bg-surface p-4" key={fact.label}>
-                <dt className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-muted">{fact.label}</dt>
-                <dd className="text-sm font-extrabold">{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-5 flex justify-center gap-5 text-sm font-bold text-muted motion-safe:animate-[hero-in_0.8s_0.45s_ease-out_both] lg:justify-start" aria-label="Professional profiles">
-            <a className="inline-flex items-center gap-2 transition hover:text-brand" href={siteConfig.linkedin} target="_blank" rel="noreferrer">
-              <LinkedIn /> LinkedIn <ArrowUpRight size={14} />
+          <div className="mt-8 flex flex-wrap gap-3 motion-safe:animate-[hero-in_0.6s_0.24s_ease-out_both]">
+            <a
+              href="#projects"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#173b2a] px-5 text-sm font-bold text-white transition hover:bg-[#285440]"
+            >
+              View my projects <ArrowUpRight size={17} />
             </a>
-            <a className="inline-flex items-center gap-2 transition hover:text-brand" href={siteConfig.github} target="_blank" rel="noreferrer">
-              <GitHub /> GitHub <ArrowUpRight size={14} />
+
+            <a
+              href={siteConfig.emailHref}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#173b2a]/25 bg-white px-5 text-sm font-bold text-[#173b2a] transition hover:border-[#173b2a] hover:bg-[#f7f3e8]"
+            >
+              <Mail size={17} /> Hire me
             </a>
           </div>
+
+          <p className="mt-8 text-sm font-medium text-[#626b64] motion-safe:animate-[hero-in_0.6s_0.32s_ease-out_both]">
+            React · Node.js · Express · MongoDB · Remote
+          </p>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-[620px] motion-safe:animate-[hero-in_0.8s_0.2s_ease-out_both]">
-          <ArchitectureMap />
-        </div>
-      </section>
-
-      <div className="overflow-hidden border-y border-line bg-surface" aria-label="Technical strengths">
-        <div className="flex w-max motion-safe:animate-[ticker-slide_30s_linear_infinite]">
-          {[...strengths, ...strengths].map((strength, index) => (
-            <span className="inline-flex items-center gap-6 whitespace-nowrap px-6 py-5 font-mono text-xs font-extrabold uppercase tracking-[0.13em] text-muted" key={`${strength}-${index}`}>
-              {strength}<i className="not-italic text-brand" aria-hidden="true">✦</i>
-            </span>
-          ))}
-        </div>
+        <HeroProfileVisual />
       </div>
-    </>
+    </section>
   );
 }

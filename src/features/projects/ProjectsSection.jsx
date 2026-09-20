@@ -1,36 +1,123 @@
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { containerClass, revealClass } from "@/components/ui/layout";
+import { useState } from "react";
 import { practiceProjects, projects } from "@/data/portfolio";
-import { PracticeProjectCard } from "@/features/projects/PracticeProjectCard";
 import { ProjectCard } from "@/features/projects/ProjectCard";
 
+const projectsPerPage = 3;
+
+const allProjects = [
+  ...projects.map((project) => ({
+    ...project,
+    label: project.category,
+    organization: project.organization || "Professional project",
+    kind: "Professional work"
+  })),
+  ...practiceProjects.map((project) => ({
+    ...project,
+    label: project.type,
+    organization: "Independent project",
+    kind: "Independent build",
+    highlights: []
+  }))
+];
+
 export function ProjectsSection() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+
+  const pageProjects = allProjects.slice(
+    currentPage * projectsPerPage,
+    currentPage * projectsPerPage + projectsPerPage
+  );
+
+  function goToPage(page) {
+    setCurrentPage(page);
+
+    document.getElementById("projects-title")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
   return (
-    <section className={`${containerClass} py-24 lg:py-36`} id="projects" aria-labelledby="projects-title">
-      <SectionHeading
-        headingId="projects-title"
-        index="01"
-        eyebrow="Selected projects"
-        title="Products brought to life."
-        description="A closer look at the product thinking, engineering scope and systems behind selected work."
-      />
+    <section
+      className="bg-[#f7f4ea] py-20 sm:py-28"
+      id="projects"
+      aria-labelledby="projects-title"
+    >
+      <div className="mx-auto w-[calc(100%-1.5rem)] max-w-[1180px] sm:w-[calc(100%-3rem)]">
+        <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
+          <div className="max-w-[39rem]">
+            <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.13em] text-[#617267]">
+              Selected work
+            </p>
 
-      <div className="grid gap-5 md:grid-cols-2">
-        {projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
-      </div>
+            <h2
+              id="projects-title"
+              className="mt-4 text-[clamp(2.2rem,4.2vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.06em] text-[#173b2a]"
+            >
+              Products built around real user needs.
+            </h2>
 
-      <div className={`${revealClass} mt-24 border-t border-line pt-16`} id="practice-projects" data-reveal>
-        <div className="mb-9 flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-end lg:gap-10">
-          <div>
-            <p className="mb-5 font-mono text-xs font-extrabold uppercase tracking-[0.13em] text-brand">More from the lab</p>
-            <h3 className="max-w-[720px] text-[clamp(2.4rem,4.8vw,3.875rem)] font-black leading-none tracking-[-0.06em]">Practice, experiments and independent builds.</h3>
+            <p className="mt-5 max-w-[34rem] text-[0.95rem] leading-7 text-[#626b64]">
+              Full-stack work, independent builds, and practical experiments—all
+              in one place.
+            </p>
           </div>
-          <p className="max-w-[390px] text-base leading-7 text-muted">Smaller projects that show range, curiosity and hands-on learning.</p>
+
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[#617267]">
+            {String(currentPage + 1).padStart(2, "0")} /{" "}
+            {String(totalPages).padStart(2, "0")}
+          </p>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
-          {practiceProjects.map((project) => <PracticeProjectCard key={project.slug} project={project} />)}
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {pageProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
         </div>
+
+        <nav
+          className="mt-10 flex items-center justify-center gap-2"
+          aria-label="Project pages"
+        >
+          <button
+            className="grid size-10 place-items-center rounded-full border border-[#173b2a]/15 bg-white text-lg font-semibold text-[#173b2a] transition hover:border-[#173b2a] disabled:cursor-not-allowed disabled:opacity-35"
+            type="button"
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage === 0}
+            aria-label="Previous project page"
+          >
+            ←
+          </button>
+
+          {Array.from({ length: totalPages }, (_, page) => (
+            <button
+              className={
+                "grid size-10 place-items-center rounded-full text-sm font-bold transition " +
+                (page === currentPage
+                  ? "bg-[#173b2a] text-white"
+                  : "border border-[#173b2a]/15 bg-white text-[#173b2a] hover:border-[#173b2a]")
+              }
+              type="button"
+              onClick={() => goToPage(page)}
+              key={page}
+              aria-label={"Show project page " + (page + 1)}
+              aria-current={page === currentPage ? "page" : undefined}
+            >
+              {page + 1}
+            </button>
+          ))}
+
+          <button
+            className="grid size-10 place-items-center rounded-full border border-[#173b2a]/15 bg-white text-lg font-semibold text-[#173b2a] transition hover:border-[#173b2a] disabled:cursor-not-allowed disabled:opacity-35"
+            type="button"
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages - 1}
+            aria-label="Next project page"
+          >
+            →
+          </button>
+        </nav>
       </div>
     </section>
   );
