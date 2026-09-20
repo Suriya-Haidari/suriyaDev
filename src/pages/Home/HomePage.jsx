@@ -1,6 +1,7 @@
 import { AboutSection } from "@/features/about/AboutSection";
 import { CapabilitiesSection } from "@/features/capabilities/CapabilitiesSection";
 import { ContactSection } from "@/features/contact/ContactSection";
+import { EducationSection } from "@/features/education/EducationsSection.jsx";
 import { HeroSection } from "@/features/hero/HeroSection";
 import { ProcessSection } from "@/features/process/ProcessSection";
 import { ProjectsSection } from "@/features/projects/ProjectsSection";
@@ -24,6 +25,7 @@ export function HomePage() {
         <AboutSection />
         <CapabilitiesSection />
         <ProcessSection />
+        <EducationSection />
         <ContactSection />
       </main>
       <Footer />

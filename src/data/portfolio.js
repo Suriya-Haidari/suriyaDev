@@ -16,7 +16,10 @@ export const projects = [
       "Marketplace and admin operations"
     ],
     visual: "operations",
-    featured: true
+    featured: true,
+    links: [
+      { label: "Visit website", href: "https://pedal24.com/" }
+    ]
   },
   {
     slug: "mizban",
@@ -25,16 +28,19 @@ export const projects = [
     organization: "SkyTeams",
     category: "Full-stack web platform",
     summary:
-      "A responsive web platform connecting polished React experiences to Node.js services and structured SQL and NoSQL data layers.",
+      "A food-delivery platform built around customer ordering, delivery-zone management and financial-management workflows.",
     role: "Full-stack development",
     scope: "Frontend to database",
-    stack: ["React", "Next.js", "Node.js", "SQL"],
+    stack: ["React", "Node.js", "Express", "MongoDB"],
     highlights: [
-      "Reusable interface architecture",
-      "Backend service integration",
-      "Relational and document data workflows"
+      "Delivery-zone and order-management functionality",
+      "Financial-management workflows for operations",
+      "REST APIs, database design and Git-based delivery"
     ],
-    visual: "layers"
+    visual: "layers",
+    links: [
+      { label: "Visit website", href: "https://mizbanapp.com/" }
+    ]
   },
   {
     slug: "medical-platform",
@@ -54,8 +60,14 @@ export const projects = [
     ],
     visual: "portal",
     links: [
-      { label: "Live project", href: "https://medical-frontend-peach.vercel.app" },
-      { label: "Source code", href: "https://github.com/Suriya-Haidari/medical-frontend" }
+      {
+        label: "Live project",
+        href: "https://medical-frontend-peach.vercel.app"
+      },
+      {
+        label: "Source code",
+        href: "https://github.com/Suriya-Haidari/medical-frontend"
+      }
     ]
   }
 ];

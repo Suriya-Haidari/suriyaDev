@@ -9,11 +9,12 @@ export const siteConfig = {
     "Full-stack web developer building clear interfaces, reliable services and practical product systems.",
   url: (configuredUrl || "https://suriya-dev.vercel.app").replace(/\/$/, ""),
   github: "https://github.com/Suriya-Haidari",
-  linkedin: "https://linkedin.com/in/suriya-haidari",
+  linkedin: "https://www.linkedin.com/in/suriya-haidari-903a6727b/",
   email: "soriahaidary17@gmail.com",
   emailHref: "mailto:soriahaidary17@gmail.com?subject=Full-stack%20opportunity",
   location: "Afghanistan",
   experience: "Nearly 2 years",
   workStyle: "Remote collaboration",
-  availability: "Open to remote full-stack roles"
+  availability: "Open to remote full-stack roles",
+  telegram: "https://web.telegram.org/k/#@Suriya_Haidari"
 };
