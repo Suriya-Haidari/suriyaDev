@@ -41,6 +41,7 @@ export function ProcessSection() {
     <section
       className="overflow-hidden bg-white py-20 sm:py-28"
       aria-labelledby="process-title"
+      id="impact"
     >
       <div className={containerClass}>
         <div

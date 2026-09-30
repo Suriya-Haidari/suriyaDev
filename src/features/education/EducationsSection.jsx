@@ -74,7 +74,7 @@ export function EducationSection() {
     return (
         <section
             className="bg-[#f7f4ea] py-20 sm:py-28"
-            id="contact"
+            id="journey"
             aria-labelledby="contact-title"
         >
             <div className={containerClass}>
