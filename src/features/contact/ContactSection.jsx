@@ -20,13 +20,13 @@ const contactMethods = [
     href: siteConfig.emailHref,
     icon: Mail
   },
-  {
-    label: "Telegram",
-    value: "Message me directly",
-    href: siteConfig.telegram,
-    icon: TelegramIcon,
-    external: true
-  },
+  // {
+  //   label: "Telegram",
+  //   value: "Message me directly",
+  //   href: siteConfig.telegram,
+  //   icon: TelegramIcon,
+  //   external: true
+  // },
   {
     label: "GitHub",
     value: "Suriya-Haidari",
